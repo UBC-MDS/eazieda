@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "eazieda"
+version = "0.1.0"
+description = "Quick and easy exploratory visuals and data preprocessing."
+authors = ["Dustin Andrews, Yuyan Guo, Vignesh Rajakumar, Arash Shamseddini"]
+license = "\"MIT\""
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.2"
+pytest-cov = "^2.11.1"
+codecov = "^2.1.11"
+python-semantic-release = "^7.15.0"
+flake8 = "^3.8.4"
+Sphinx = "^3.5.1"
+sphinxcontrib-napoleon = "^0.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
