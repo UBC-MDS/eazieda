@@ -1,6 +1,6 @@
 # eazieda 
 
-![](https://github.com/dbandrews,yuyanguo, arashshams, vigneshRajakumar/eazieda/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/dbandrews,yuyanguo, arashshams, vigneshRajakumar/eazieda/branch/main/graph/badge.svg)](https://codecov.io/gh/dbandrews,yuyanguo, arashshams, vigneshRajakumar/eazieda) ![Release](https://github.com/dbandrews,yuyanguo, arashshams, vigneshRajakumar/eazieda/workflows/Release/badge.svg) [![Documentation Status](https://readthedocs.org/projects/eazieda/badge/?version=latest)](https://eazieda.readthedocs.io/en/latest/?badge=latest)
+![](https://github.com/UBC-MDS/eazieda/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/dbandrews/eazieda/branch/main/graph/badge.svg)](https://codecov.io/gh/dbandrews/eazieda) ![Release](https://github.com/UBC-MDS/eazieda/workflows/Release/badge.svg) [![Documentation Status](https://readthedocs.org/projects/eazieda/badge/?version=latest)](https://eazieda.readthedocs.io/en/latest/?badge=latest)
 
 Quick and easy exploratory visuals and data preprocessing.
 
