@@ -15,7 +15,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/dbandrews,yuyanguo, arashshams, vigneshRajakumar/eazieda/issues.
+Report bugs [here](https://github.com/UBC-MDS/eazieda/issues).
 
 If you are reporting a bug, please include:
 
@@ -45,7 +45,7 @@ articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/dbandrews,yuyanguo, arashshams, vigneshRajakumar/eazieda/issues.
+The best way to send feedback is to file an issue at https://github.com/UBC-MDS/eazieda/issues.
 
 If you are proposing a feature:
 
