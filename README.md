@@ -30,6 +30,13 @@ The official documentation is hosted on Read the Docs: https://eazieda.readthedo
 
 We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/UBC-MDS/eazieda/graphs/contributors).
 
+|  	 Core contributor| Github.com username| 
+|---------|---|
+|  Vignesh Lakshmi Rajakumar |  @vigneshrajakumar| 
+|   Dustin Andrews|  @dbandrews| 
+|  Arash Shamseddini | @arashshams| 
+|  Yuyan Guo | @yuyanguo| 
+
 ### Credits
 
 This package was created with Cookiecutter and the UBC-MDS/cookiecutter-ubc-mds project template, modified from the [pyOpenSci/cookiecutter-pyopensci](https://github.com/pyOpenSci/cookiecutter-pyopensci) project template and the [audreyr/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
