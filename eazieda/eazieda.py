@@ -39,7 +39,7 @@ def corr_plot(data, features, method="pearson", plot_width=600, plot_height=400)
 
     Examples
     --------
-    >>> from eazieda.corr_plot import corr_plot
+    >>> from eazieda.eazieda import corr_plot
     >>> from vega_datasets import data
     >>> df = data.iris()
     >>> corr_plot(df, ["petal_length", "petal_width", "sepal_length"])
@@ -98,7 +98,7 @@ def categorical_histograms(data, features, plot_width=600, plot_height=400):
 
     Examples
     --------
-    >>> from eazieda.corr_plot import corr_plot
+    >>> from eazieda.eazieda import categorical_histograms
     >>> from vega_datasets import data
     >>> df = data.iris()
     >>> categorical_histograms(df, ["petal_length", "petal_width", "sepal_length"])
