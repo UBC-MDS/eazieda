@@ -1,16 +1,14 @@
-import pandas as pd
-
-
-def outliers(s, method = "zscore", remove = False):
+def outliers(s, method="zscore", remove=False):
     """
     Detects outliers in a pandas series
 
     Parameters
     ----------
     s : pandas.Series
-        Pandas Series that has the data for which the outliers need to be found
+        Pandas Series for which the outliers need to be found
     method : str
-        The algorithm/method used for outlier detection. One of 'zscore',  'iforest', 'dbscan', 'iqr'
+        The algorithm/method used for outlier detection. 
+        One of 'zscore',  'iforest', 'dbscan', 'iqr'
     remove : bool
         in-place removal of the outliers
 
