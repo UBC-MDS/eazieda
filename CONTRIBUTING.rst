@@ -6,7 +6,14 @@ Contributing
 
 Workflow for Core Development Team
 ----------------------------------
-Members of the core development team have agreed on following the Github workflow (https://guides.github.com/introduction/flow/) for this project.
+Members of the core development team have agreed on following the `Github workflow <https://guides.github.com/introduction/flow/>`_ for this project.
+
+Core Contributors
+-----------------
+* Vignesh Lakshmi Rajakumar
+* Dustin Andrews
+* Arash Shamseddini
+* Yuyan Guo
 
 Feel free to contribute
 -----------------------
@@ -21,7 +28,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/dbandrews,yuyanguo, arashshams, vigneshRajakumar/eazieda/issues.
+Report bugs `here <https://github.com/UBC-MDS/eazieda/issues>`_
 
 If you are reporting a bug, please include:
 
@@ -51,7 +58,7 @@ articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/dbandrews,yuyanguo, arashshams, vigneshRajakumar/eazieda/issues.
+The best way to send feedback is to file an issue `here <https://github.com/UBC-MDS/eazieda/issues>`_
 
 If you are proposing a feature:
 
