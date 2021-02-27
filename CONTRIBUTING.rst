@@ -6,7 +6,7 @@ Contributing
 
 Workflow for Core Development Team
 ----------------------------------
-Members of the core development team have agreed on following the [Github workflow] (https://guides.github.com/introduction/flow/) for this project.
+Members of the core development team have agreed on following the Github workflow (https://guides.github.com/introduction/flow/) for this project.
 
 Feel free to contribute
 -----------------------
