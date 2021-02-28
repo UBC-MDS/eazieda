@@ -67,9 +67,9 @@ def outliers(s, method="zscore", remove=False):
 
     Examples
     --------
-    >>> from eazieda import eazieda
+    >>> from eazieda.eazieda import outliers
     >>> s = pd.Series([1,2,3,4,5,6,100, 101])
-    >>> eazieda.outliers(s)
+    >>> outliers(s)
     0    100
     1    101
     dtype: int64
