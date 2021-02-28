@@ -46,6 +46,7 @@ def corr_plot(data, features, method="pearson", plot_width=600, plot_height=400)
     """
     pass
 
+
 def outliers(s, method="zscore", remove=False):
     """
     Detects outliers in a pandas series
@@ -75,6 +76,7 @@ def outliers(s, method="zscore", remove=False):
     dtype: int64
     """
     pass
+
 
 def categorical_histograms(data, features, plot_width=600, plot_height=400):
     """
@@ -107,7 +109,8 @@ def categorical_histograms(data, features, plot_width=600, plot_height=400):
 
 def missing_imputed(data, impute=False, method_num="mean", method_non_num="most_frequent"):
     """
-    Return the number/percentage of missing values for each column in the dataframe as well as giving the choice of imputing the missing values in place
+    Return the number/percentage of missing values for each column in the dataframe 
+    as well as giving the choice of imputing the missing values in place
 
     Parameters
     ----------
