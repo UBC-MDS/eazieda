@@ -29,7 +29,7 @@ in place. The imputation methods can also be customized by the user.
 
 To use `eaziea` in a project:
 
-    from eda_analysis import eda_analysis
+    from eaziea import eaziea
 
 ## Documentation
 
