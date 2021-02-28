@@ -6,7 +6,9 @@ authors = ["Dustin Andrews, Yuyan Guo, Vignesh Rajakumar, Arash Shamseddini"]
 license = "\"MIT\""
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ">=3.7.1,<4.0"
+pandas = "^1.2.2"
+altair = "^4.1.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"
