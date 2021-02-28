@@ -132,14 +132,13 @@ def missing_impute(
         Whether to impute the missing values in place.
 
     method_num : str, default = "mean"
-        The method used for imputing numerical missing values. 
-        This is only 
-        applicable if impute=True.
+        The method used for imputing numerical missing values
+        This is only applicable if impute=True
         One of 'drop', mean', 'median'
 
     method_non_num: str, default = "most_frequent"
-        The method used for imputing non-numerical missing values. 
-        This is only applicable if impute=True.
+        The method used for imputing non-numerical missing values 
+        This is only applicable if impute=True
         One of 'drop', 'most_frequent'
 
     Returns
