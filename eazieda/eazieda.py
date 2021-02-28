@@ -3,7 +3,12 @@ import altair as alt
 import numpy as np
 
 
-def corr_plot(data, features, method="pearson", plot_width=600, plot_height=400):
+def corr_plot(
+        data,
+        features,
+        method="pearson",
+        plot_width=600,
+        plot_height=400):
     """
     Generates a correlation plot for a list of features in a given dataframe
 
@@ -110,11 +115,11 @@ def categorical_histograms(data, features, plot_width=600, plot_height=400):
 
 
 def missing_imputed(
-    data,
-    impute=False,
-    method_num="mean",
-    method_non_num="most_frequent"
-    ):
+        data,
+        impute=False,
+        method_num="mean",
+        method_non_num="most_frequent"
+        ):
     """
     Return the number/percentage of missing values for each column 
     in the dataframe as well as giving the 
@@ -145,7 +150,8 @@ def missing_imputed(
     Examples
     --------
     >>> from eazieda.eazieda import missing_imputed
-    >>> df = pd.DataFrame([[1, "x"], [np.nan, "y"], [2, np.nan], [3, "y"]], columns = ['a', 'b'])
+    >>> df = pd.DataFrame([[1, "x"], [np.nan, "y"], [2, np.nan],
+    >>> [3, "y"]], columns = ['a', 'b'])
     >>> missing_imputedz(df)
         n_missing	percent
     a	1	        25%
