@@ -122,7 +122,7 @@ def missing_imputed(
         ):
     """
     Return the number/percentage of missing values for each column 
-    in the dataframe as well as giving the 
+    in the dataframe as well as giving the
     choice of imputing the missing values in place
 
     Parameters
@@ -144,7 +144,7 @@ def missing_imputed(
     Returns
     -------
     pandas.core.frame.DataFrame
-        A dataframe contains two columns: the number of missing values and 
+        A dataframe containing two columns: the number of missing values and 
         the percentage of missing values for each column
 
     Examples
