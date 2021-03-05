@@ -1,4 +1,3 @@
-import pandas as pd
 import numpy as np
 
 from scipy import stats
@@ -15,7 +14,7 @@ def outliers_detect(s, method="zscore", remove=False):
         Pandas Series for which the outliers need to be found
 
     method : str, default = "zscore"
-        The algorithm/method used for outlier detection. 
+        The algorithm/method used for outlier detection.
         One of 'zscore',  'iforest', 'iqr'
 
     remove : bool, default = False
@@ -24,7 +23,8 @@ def outliers_detect(s, method="zscore", remove=False):
     Returns
     -------
     numpy.array
-        Boolean array with same length as the input, indices of outlier marked.
+        Boolean array with same length as the input,
+        indices of outlier marked.
 
     Examples
     --------
@@ -43,8 +43,9 @@ def outliers_detect(s, method="zscore", remove=False):
 
     if remove:
         remove_outliers(s, outliers)
-    
+
     return outliers
+
 
 def outliers_detect_iforest(s):
     """
@@ -58,7 +59,8 @@ def outliers_detect_iforest(s):
     Returns
     -------
     numpy.array
-        Boolean array with same length as the input, indices of outlier marked.
+        Boolean array with same length as the input,
+        indices of outlier marked.
 
     Examples
     --------
@@ -67,8 +69,8 @@ def outliers_detect_iforest(s):
     >>> outliers_detect_iforest(s)
     array([False, False, False, False, False,  True])
     """
-    iforest = IsolationForest().fit(s.values.reshape(-1,1))
-    return iforest.predict(s.values.reshape(-1,1)) == -1
+    iforest = IsolationForest().fit(s.values.reshape(-1, 1))
+    return iforest.predict(s.values.reshape(-1, 1)) == -1
 
 
 def outliers_detect_iqr(s, factor=1.5):
@@ -86,7 +88,8 @@ def outliers_detect_iqr(s, factor=1.5):
     Returns
     -------
     numpy.array
-        Boolean array with same length as the input, indices of outlier marked.
+        Boolean array with same length as the input,
+        indices of outlier marked.
 
     Examples
     --------
@@ -98,8 +101,10 @@ def outliers_detect_iqr(s, factor=1.5):
     q1 = s.quantile(0.25)
     q3 = s.quantile(0.75)
     inter_quantile_range = q3 - q1
-    return ((s < (q1 - 1.5 * inter_quantile_range)) | (s > (q3 + 1.5 * inter_quantile_range))).values
-
+    return (
+        (s < (q1 - 1.5 * inter_quantile_range)) |
+        (s > (q3 + 1.5 * inter_quantile_range))
+    ).values
 
 
 def outliers_detect_zscore(s, threshold=3):
@@ -117,7 +122,8 @@ def outliers_detect_zscore(s, threshold=3):
     Returns
     -------
     numpy.array
-        Boolean array with same length as the input, indices of outlier marked.
+        Boolean array with same length as the input,
+        indices of outlier marked.
 
     Examples
     --------
@@ -141,7 +147,8 @@ def remove_outliers(s, outliers):
         Pandas Series for which the outliers need to be found
 
     outliers : numpy.array
-        boolean numpy array with the same length as s. Outliers should be marked with True.
+        boolean numpy array with the same length as s.
+        Outliers should be marked with True.
 
     Returns
     -------
