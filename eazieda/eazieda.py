@@ -1,7 +1,7 @@
-from vega_datasets import data
-import pandas as pd
-import altair as alt
-import numpy as np
+# from vega_datasets import data
+# import pandas as pd
+# import altair as alt
+# import numpy as np
 
 
 def corr_plot(
@@ -79,42 +79,6 @@ def outliers_detect(s, method="zscore", remove=False):
     pass
 
 
-def histograms(data, features, plot_width=100, plot_height=100, num_cols=2):
-    """
-    Generates histograms for numeric features and bar plots for categorical features
-
-    Parameters
-    ----------
-    data : pandas.core.frame.DataFrame
-        A Pandas Dataframe
-
-    features : list
-        A list of strings that represents feature names
-
-    plot_width: int
-        The width of each features sub plot. Default = 100
-
-    plot_height: int
-        The height of each features sub plot. Default = 100
-
-    num_cols : int
-        The number of columns in the final grid of plots
-
-    Returns
-    -------
-    `altair plot`
-        A combined altair correlation plot
-
-    Examples
-    --------
-    >>> from eazieda.eazieda import histograms
-    >>> from vega_datasets import data
-    >>> df = data.iris()
-    >>> histograms(df, ['petalLength', 'petalWidth', 'sepalLength'], num_cols=2)
-    """
-    pass
-
-
 def missing_impute(
         data,
         impute=False,
@@ -162,45 +126,3 @@ def missing_impute(
     pass
 
 
-df = data.iris()
-
-features = ["petalLength", "petalWidth", "sepalLength", "species"]
-numeric_cols = set(df.select_dtypes(
-    include=np.number).columns).intersection(features)
-cat_cols = set(df.select_dtypes(
-    include=["category", "object"]).columns).intersection(features)
-plot_width = 100
-plot_height = 100
-num_cols = 2
-
-numeric_chart = alt.Chart(df).transform_fold(
-    list(numeric_cols),
-    as_=['Numeric Features', 'value']
-).mark_bar().encode(
-    alt.X('value:Q', title="value",  bin=True),
-    y='count()'
-).properties(
-    width=plot_width,
-    height=plot_height
-).facet(
-    facet='Numeric Features:N',
-    columns=num_cols
-).resolve_scale(x='independent')
-
-categorical_chart = alt.Chart(df.sample(df.shape[0])).transform_fold(
-    list(cat_cols),
-    as_=['Categorical Features', 'value']
-).mark_bar().encode(
-    alt.X('value:N'),
-    y='count()'
-).properties(
-    width=plot_width,
-    height=plot_height
-).facet(
-    facet='Categorical Features:N',
-    columns=num_cols
-)
-
-final_chart = numeric_chart & categorical_chart
-
-alt.vconcat(numeric_chart, categorical_chart)
