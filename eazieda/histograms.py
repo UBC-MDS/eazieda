@@ -33,7 +33,7 @@ def histograms(data, features, plot_width=100, plot_height=100, num_cols=2):
 
     Examples
     --------
-    >>> from eazieda.eazieda import histograms
+    >>> from eazieda.histograms import histograms
     >>> from vega_datasets import data
     >>> df = data.iris()
     >>> histograms(df, ['petalLength', 'petalWidth', 'sepalLength'], num_cols=2)
