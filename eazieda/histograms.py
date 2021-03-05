@@ -38,7 +38,9 @@ def histograms(data, features, plot_width=100, plot_height=100, num_cols=2):
     >>> df = data.iris()
     >>> histograms(df, ['petalLength', 'petalWidth', 'sepalLength'], num_cols=2)
     """
-    if len(set(features).intersection(set(data.columns))) != len(features):
+    if not isinstance(data, pd.DataFrame):
+        raise ValueError("Please pass in a Pandas DataFrame for `data`")
+    elif len(set(features).intersection(set(data.columns))) != len(features):
         raise ValueError("All features must be present in dataframe")
     elif (not isinstance(plot_width, int)) or (not isinstance(plot_height, int)):
         raise ValueError("plot_width and plot_height must be integer")

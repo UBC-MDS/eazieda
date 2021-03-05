@@ -31,7 +31,7 @@ def test_version():
     assert __version__ == "0.1.0"
 
 
-def test_histograms_exceptions(df):
+def test_histograms_value_errors(df):
     with raises(ValueError):
         histograms(
             df,
@@ -56,6 +56,14 @@ def test_histograms_exceptions(df):
             plot_height="100",
             num_cols=2,
         )
+    with raises(ValueError):
+        histograms(
+            "not a df",
+            ["petalLength"],
+            plot_width=100,
+            plot_height="100",
+            num_cols=2,
+        )
 
 
 def test_histograms_data(plot, df, df_sample):
@@ -64,3 +72,9 @@ def test_histograms_data(plot, df, df_sample):
     pd.testing.assert_frame_equal(
         df_sample.reset_index(drop=True), pd.DataFrame(chart_data[1])
     )
+
+
+def test_plot_dims(plot):
+    chart_data = plot.to_dict()["config"]
+    assert chart_data["view"]["continuousWidth"] == 400
+    assert chart_data["view"]["continuousHeight"] == 300
