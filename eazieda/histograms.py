@@ -24,7 +24,7 @@ def histograms(data, features, plot_width=100, plot_height=100, num_cols=2):
         The height of each features sub plot. Default = 100
 
     num_cols : int
-        The number of columns in the final grid of plots
+        The number of columns in the final grid of plots. Default = 2
 
     Returns
     -------
