@@ -39,7 +39,7 @@ def corr_plot(
 
     Examples
     --------
-    >>> from eazieda.eazieda import corr_plot
+    >>> from eazieda.corr_plot import corr_plot
     >>> from vega_datasets import data
     >>> df = data.iris()
     >>> corr_plot(df, ["petal_length", "petal_width", "sepal_length"], "pearson")
