@@ -1,5 +1,5 @@
 from eazieda import __version__
-from eazieda import eazieda
+from eazieda import corr_plot
 from vega_datasets import data
 import pandas as pd
 import altair as alt
@@ -28,7 +28,7 @@ def test_corr_plot():
         })
     
     
-    plot_test = eazieda.corr_plot(input_data)
+    plot_test = corr_plot.corr_plot(input_data, features=None)
 
     data_test = np.array([1, 2, 3, 4, 5])
 
@@ -41,8 +41,8 @@ def test_corr_plot():
     features_test4 = "vote_average"
     
     features_test5 = ["vote_average"]
-         
 
+         
      # Tests whether output is of Altair object
     assert "altair" in str(type(plot_test)), "Output is not an Altair object"
     
@@ -55,26 +55,26 @@ def test_corr_plot():
     
     # Tests whether a not dataframe input raises TypeError
     with raises(TypeError):
-        eazieda.corr_plot(data_test, features_test1)
+        corr_plot.corr_plot(data_test, features_test1)
         
     # Tests whether a not list features raises TypeError
     with raises(TypeError):
-        eazieda.corr_plot(input_data, features_test4)
+        corr_plot.corr_plot(input_data, features_test4)
         
     # Tests whether a list of a single feature raises ValueError
     with raises(ValueError):
-        eazieda.corr_plot(input_data, features_test5)
+        corr_plot.corr_plot(input_data, features_test5)
         
     # Tests whether a not str method raises TypeError
     with raises(TypeError):
-        eazieda.corr_plot(input_data, method=5)
+        corr_plot.corr_plot(input_data, method=5)
         
     # Tests whether a not int plot_width and plot_height raises TypeError
     with raises(TypeError):
-        eazieda.corr_plot(input_data, plot_width="width", plot_height="height")
+        corr_plot.corr_plot(input_data, plot_width="width", plot_height="height")
         
     # Tests whether a method not from available options raises Exception
     with raises(Exception):
-        eazieda.corr_plot(input_data, method="laplace")
+        corr_plot.corr_plot(input_data, method="laplace")
 
 
