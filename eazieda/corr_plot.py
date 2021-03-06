@@ -1,6 +1,7 @@
 import pandas as pd
 import altair as alt
 import numpy as np
+import scipy
 from vega_datasets import data
 
 def corr_plot(
@@ -44,7 +45,7 @@ def corr_plot(
     >>> corr_plot(df, ["petal_length", "petal_width", "sepal_length"], "pearson")
     """
     # Defining numeric_features list
-    numeric_features = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+    numeric_features = ["int16", "int32", "int64", "float16", "float32", "float64"]
 
     # Cheking user's inputs
     
