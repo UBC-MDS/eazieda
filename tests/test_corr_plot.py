@@ -4,6 +4,7 @@ from vega_datasets import data
 import pandas as pd
 import altair as alt
 import numpy as np
+import scipy
 from pytest import raises, fixture
 
 
@@ -26,8 +27,9 @@ def test_corr_plot():
             "vote_std": [0.87, 0.78, 0.82],
         })
     
-    plot_test = eazieda.corr_plot(input_data)
     
+    plot_test = eazieda.corr_plot(input_data)
+
     data_test = np.array([1, 2, 3, 4, 5])
 
     features_test1 = ["vote_average", "vote_count", "vote_std"]
@@ -40,7 +42,7 @@ def test_corr_plot():
     
     features_test5 = ["vote_average"]
          
-    
+
      # Tests whether output is of Altair object
     assert "altair" in str(type(plot_test)), "Output is not an Altair object"
     
@@ -48,7 +50,7 @@ def test_corr_plot():
     assert plot_test.to_dict()["mark"] == "circle", "Mark should be of type 'circle'."
     
     # Tests whether plot title starts with selected method
-    assert plot_test.to_dict()["title"][0] in ("p","s","k",), "The plot title is not ax expected."
+    assert plot_test.to_dict()["title"][0] in ("p","s","k",), "The plot title is not as expected."
     
     
     # Tests whether a not dataframe input raises TypeError
