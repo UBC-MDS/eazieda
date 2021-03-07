@@ -49,55 +49,42 @@ def test_outliers_detect_iforest(simple_series):
 
     assert np.array_equal(expected_output, outliers)
 
-def test_remove_outliers(simple_series_and_array):
+def test_remove_outliers_inplace(simple_series_and_array):
     s, outliers = simple_series_and_array
-    remove_outliers(s, outliers)
+    remove_outliers(s, outliers, inplace=True)
 
     expected_output = pd.Series([1,2,1,2,1])
 
     assert expected_output.equals(s)
 
+def test_remove_outlier_not_inplace(simple_series_and_array):
+    s, outliers = simple_series_and_array
+    output = remove_outliers(s, outliers, inplace=False)
+
+    expected_output = pd.Series([1,2,1,2,1])
+    assert expected_output.equals(output)
+
 def test_detect_outliers_integration_zscore_false(hi_zscore_series):
     s = hi_zscore_series.copy()
-    outliers = outliers_detect(s, method="zscore", remove=False)
+    outliers = outliers_detect(s, method="zscore")
     expected_output = np.array([False, False, False, False, False, False, False, False, False, False, True])
     expected_s = hi_zscore_series
 
     assert np.array_equal(expected_output, outliers)
-    # make sure nothing was removed
-    assert expected_s.equals(s)
-
-def test_detect_outliers_integration_zscore_true(hi_zscore_series):
-    s = hi_zscore_series.copy()
-    outliers = outliers_detect(s, method="zscore", remove=True)
-    expected_output = np.array([False, False, False, False, False, False, False, False, False, False, True])
-    expected_s = hi_zscore_series.iloc[:-1]
-
-    assert np.array_equal(expected_output, outliers)
-    assert expected_s.equals(s)
 
 def test_detect_outliers_integration_iqr_false(simple_series):
     s = simple_series.copy()
-    outliers = outliers_detect(s, method="iqr", remove=False)
+    outliers = outliers_detect(s, method="iqr")
     expected_output = np.array([False, False, False, False, False,  True])
     expected_s = simple_series
 
     assert np.array_equal(expected_output, outliers)
     # make sure nothing was removed
-    assert expected_s.equals(s)
-
-def test_detect_outliers_integration_iqr_true(simple_series):
-    s = simple_series.copy()
-    outliers = outliers_detect(s, method="iqr", remove=True)
-    expected_output = np.array([False, False, False, False, False,  True])
-    expected_s = simple_series.iloc[:-1]
-
-    assert np.array_equal(expected_output, outliers)
     assert expected_s.equals(s)
 
 def test_detect_outliers_integration_iforest_false(simple_series):
     s = simple_series.copy()
-    outliers = outliers_detect(s, method="iforest", remove=False)
+    outliers = outliers_detect(s, method="iforest")
     expected_output = np.array([False, False, False, False, False,  True])
     expected_s = simple_series
 
@@ -105,11 +92,18 @@ def test_detect_outliers_integration_iforest_false(simple_series):
     # make sure nothing was removed
     assert expected_s.equals(s)
 
-def test_detect_outliers_integration_iforest_true(simple_series):
-    s = simple_series.copy()
-    outliers = outliers_detect(s, method="iforest", remove=True)
-    expected_output = np.array([False, False, False, False, False,  True])
-    expected_s = simple_series.iloc[:-1]
+def test_incorrect_input_detect():
+    with pytest.raises(TypeError):
+        outliers_detect(12)
 
-    assert np.array_equal(expected_output, outliers)
-    assert expected_s.equals(s)
+def test_incorrect_method_detect(simple_series):
+    with pytest.raises(ValueError):
+        outliers_detect(simple_series, method='test')
+
+def test_incorrecttype_remove():
+    with pytest.raises(TypeError):
+        remove_outliers(12, np.array([True]))
+
+def test_incorrect_outliers_type_remove(simple_series):
+    with pytest.raises(TypeError):
+        remove_outliers(simple_series, "test")
