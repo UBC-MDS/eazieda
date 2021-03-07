@@ -1,5 +1,5 @@
 from eazieda import __version__
-from eazieda import missing_detect
+from eazieda.missing_detect import missing_detect
 import pandas as pd
 import numpy as np
 from pytest import raises, fixture
@@ -21,7 +21,7 @@ def test_missing_detect(df_missing):
     
     assert pd.DataFrame.equals(missing_output, expected_output)
     
-    # Tests whether a integer input raises TypeError
+    # Tests whether an integer input raises TypeError
     with raises(TypeError):
         missing_detect(5)
 
