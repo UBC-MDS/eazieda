@@ -15,7 +15,7 @@ def missing_detect(data):
 
     Examples
     --------
-    >>> from eazieda.eazieda import missing_detect
+    >>> from eazieda.missing_detect import missing_detect
     >>> df = pd.DataFrame([[1, "x"], [np.nan, "y"], [2, np.nan], [3, "y"]], columns = ['a', 'b'])
     >>> missing_detect(df)
         n_missing	percent
@@ -30,4 +30,3 @@ def missing_detect(data):
     missing_count['percent'] = missing_count['n_missing'] / data.shape[0]
     
     return missing_count
-
