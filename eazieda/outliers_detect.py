@@ -103,8 +103,8 @@ def outliers_detect_iqr(s, factor=1.5):
     q3 = s.quantile(0.75)
     inter_quantile_range = q3 - q1
     return (
-        (s < (q1 - 1.5 * inter_quantile_range)) |
-        (s > (q3 + 1.5 * inter_quantile_range))
+        (s < (q1 - factor* inter_quantile_range)) |
+        (s > (q3 + factor* inter_quantile_range))
     ).values
 
 
