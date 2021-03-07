@@ -20,9 +20,11 @@ $ pip install -i https://test.pypi.org/simple/ eazieda
 ## Features
 
 1.  `missing_impute`: This function will take in a dataframe and generate a table listing the number of missing values and the percentage of missing values for each column. It also gives the user an option of doing some simple imputations on the entire dataframe in place. The imputation methods can also be customized by the user.
-2.  `outliers_detect` : This function will take in a pandas series and will return a series containing all outliers given by certain method that the users can customize. It also gives the user an option to remove all the outliers in place.
+2.  `outliers_detect` : This function will take in a pandas series and will return a boolean numpy array containing all the indices of outliers as `True`, given by certain method that the users can customize.
 3.  `corr_plot`: This function will take in a dataframe and a list of feature names to generate a correlation plot for the given list of features.
 4.  `categorical_histograms`: This function will take in a dataframe and a list of feature names to generates histograms for numeric features and bar plots for categorical features
+5.  `remove_outliers`: This function will take in a pandas series and an boolean numpy array with the outliers marked as `True` and removes them. It returns the series without the outliers. This can be done inplace in which case it will return None.
+6.  `histograms`: This function will take in a dataframe and a list of feature names to generates histograms for numeric features and bar plots for categorical features
 
 ## Dependencies
 
