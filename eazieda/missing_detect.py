@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+
 def missing_detect(data):
     """
     Return the number/percentage of missing values for each column in the dataframe 
