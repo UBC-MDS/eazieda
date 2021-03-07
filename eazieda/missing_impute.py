@@ -72,5 +72,5 @@ def missing_impute(data, method_num="mean", method_non_num="most_frequent"):
             most_frequent = imputed_df[non_num_column].value_counts().sort_values(ascending=False).index[0]
             imputed_df[non_num_column] = imputed_df[non_num_column].replace(np.nan, most_frequent)
 
-    return imputed_df.reset_index()
+    return imputed_df.reset_index(drop=True)
 
