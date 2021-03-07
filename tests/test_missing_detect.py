@@ -8,7 +8,7 @@ from pytest import raises, fixture
 def test_version():
     assert __version__ == "0.1.0"
 
-@pytest.fixture
+@fixture
 def df_missing():
     df = pd.DataFrame([[1, "x"], [np.nan, "y"], [2, np.nan], [3, "y"]], columns = ['a', 'b'])
     return df
