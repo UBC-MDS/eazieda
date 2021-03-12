@@ -1,6 +1,6 @@
 # eazieda 
 
-![](https://github.com/UBC-MDS/eazieda/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/eazieda/branch/main/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/eazieda) ![Release](https://github.com/UBC-MDS/eazieda/workflows/Release/badge.svg) [![Documentation Status](https://readthedocs.org/projects/eazieda/badge/?version=latest)](https://eazieda.readthedocs.io/en/latest/?badge=latest)
+![](https://github.com/UBC-MDS/eazieda/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/eazieda/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/eazieda) ![Release](https://img.shields.io/github/v/release/UBC-MDS/eazieda) [![Documentation Status](https://readthedocs.org/projects/eazieda/badge/?version=latest)](https://eazieda.readthedocs.io/en/latest/?badge=latest)
 
 Almost every data analysis project involves the process of doing some exploratory data analysis(EDA) and data preprocessing. Usually they serve as a very crucial and inevitable step in a data analysis workflow. There are some very common tasks in EDA, which can include:
 
