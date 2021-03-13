@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "eazieda"
-version = "0.1.5"
+version = "0.1.6"
 description = "Quick and easy exploratory visuals and data preprocessing."
 authors = ["Dustin Andrews, Yuyan Guo, Vignesh Rajakumar, Arash Shamseddini"]
 license = "\"MIT\""
