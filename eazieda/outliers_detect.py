@@ -26,9 +26,9 @@ def outliers_detect(s, method="zscore"):
 
     Examples
     --------
-    >>> from eazieda.outliers_detect import outliers_detect_zscore
+    >>> from eazieda.outliers_detect import outliers_detect
     >>> s = pd.Series([1,1,1,1,1,1,1,1,1,1,1e14])
-    >>> outliers_detect_zscore(s)
+    >>> outliers_detect(s)
     array([False, False, False, False, False, False, False, False, False,
         True])
     """
@@ -65,7 +65,7 @@ def outliers_detect_iforest(s):
 
     Examples
     --------
-    >>> from eazieda.outliers_detect import outliers_detect_iqr
+    >>> from eazieda.outliers_detect import outliers_detect_iforest
     >>> s = pd.Series([1,2,1,2,1, 1000])
     >>> outliers_detect_iforest(s)
     array([False, False, False, False, False,  True])
@@ -96,7 +96,7 @@ def outliers_detect_iqr(s, factor=1.5):
     --------
     >>> from eazieda.outliers_detect import outliers_detect_iqr
     >>> s = pd.Series([1,2,1,2,1, 1000])
-    >>> outliers_detect_zscore(s)
+    >>> outliers_detect_iqr(s)
     array([False, False, False, False, False,  True])
     """
     q1 = s.quantile(0.25)
@@ -151,6 +151,9 @@ def remove_outliers(s, outliers, inplace=False):
         boolean numpy array with the same length as s.
         Outliers should be marked with True.
 
+    inplace : boolean
+        do the removal inplace
+
     Returns
     -------
     None or pd.Series
@@ -158,7 +161,7 @@ def remove_outliers(s, outliers, inplace=False):
 
     Examples
     --------
-    >>> from eazieda.outliers_detect import outliers_detect_zscore
+    >>> from eazieda.outliers_detect import remove_outliers
     >>> s = pd.Series([1,1e14])
     >>> outliers = np.array([False,,True])
     >>> remove_outliers(s, outliers)
