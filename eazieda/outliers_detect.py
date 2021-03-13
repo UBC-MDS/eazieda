@@ -1,10 +1,11 @@
 import numpy as np
+import pandas as pd
 
 from scipy import stats
 from sklearn.ensemble import IsolationForest
 
 
-def outliers_detect(s, method="zscore", remove=False):
+def outliers_detect(s, method="zscore"):
     """
     Detects outliers in a pandas series
 
@@ -16,9 +17,6 @@ def outliers_detect(s, method="zscore", remove=False):
     method : str, default = "zscore"
         The algorithm/method used for outlier detection.
         One of 'zscore',  'iforest', 'iqr'
-
-    remove : bool, default = False
-        in-place removal of the outliers
 
     Returns
     -------
@@ -34,15 +32,18 @@ def outliers_detect(s, method="zscore", remove=False):
     array([False, False, False, False, False, False, False, False, False,
         True])
     """
+
+    if not isinstance(s, pd.Series):
+        raise TypeError("s should be a pandas series")
+
     if method == "zscore":
         outliers = outliers_detect_zscore(s)
     elif method == "iqr":
         outliers = outliers_detect_iqr(s)
     elif method == "iforest":
         outliers = outliers_detect_iforest(s)
-
-    if remove:
-        remove_outliers(s, outliers)
+    else:
+        raise ValueError("Invalid method. should be zscore, iqr or iforest")
 
     return outliers
 
@@ -102,8 +103,8 @@ def outliers_detect_iqr(s, factor=1.5):
     q3 = s.quantile(0.75)
     inter_quantile_range = q3 - q1
     return (
-        (s < (q1 - factor* inter_quantile_range)) |
-        (s > (q3 + factor* inter_quantile_range))
+        (s < (q1 - factor * inter_quantile_range))
+        | (s > (q3 + factor * inter_quantile_range))
     ).values
 
 
@@ -137,7 +138,7 @@ def outliers_detect_zscore(s, threshold=3):
     return z > threshold
 
 
-def remove_outliers(s, outliers):
+def remove_outliers(s, outliers, inplace=False):
     """
     Drops outliers from the given series
 
@@ -152,7 +153,8 @@ def remove_outliers(s, outliers):
 
     Returns
     -------
-    None
+    None or pd.Series
+        series with outliers removed. None if inplace=True.
 
     Examples
     --------
@@ -164,4 +166,10 @@ def remove_outliers(s, outliers):
     0    1.0
     dtype: float64
     """
-    s.drop(s.index[outliers], inplace=True)
+    if not isinstance(s, pd.Series):
+        raise TypeError("s should be a pandas series")
+
+    if not isinstance(outliers, np.ndarray):
+        raise TypeError("outliers should be numpy array")
+
+    return s.drop(s.index[outliers], inplace=inplace)

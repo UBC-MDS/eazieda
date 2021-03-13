@@ -1,5 +1,3 @@
-from altair.vegalite.v4.schema.core import Value
-from vega_datasets import data
 import pandas as pd
 import altair as alt
 import numpy as np
@@ -7,7 +5,8 @@ import numpy as np
 
 def histograms(data, features, plot_width=100, plot_height=100, num_cols=2):
     """
-    Generates histograms for numeric features and bar plots for categorical features
+    Generates histograms for numeric features and
+    bar plots for categorical features
 
     Parameters
     ----------
@@ -36,19 +35,22 @@ def histograms(data, features, plot_width=100, plot_height=100, num_cols=2):
     >>> from eazieda.histograms import histograms
     >>> from vega_datasets import data
     >>> df = data.iris()
-    >>> histograms(df, ['petalLength', 'petalWidth', 'sepalLength'], num_cols=2)
+    >>> histograms(df, ['petalLength', 'petalWidth', 'sepalLength'],
+    >>> num_cols=2)
     """
     if not isinstance(data, pd.DataFrame):
         raise ValueError("Please pass in a Pandas DataFrame for `data`")
     elif len(set(features).intersection(set(data.columns))) != len(features):
         raise ValueError("All features must be present in dataframe")
-    elif (not isinstance(plot_width, int)) or (not isinstance(plot_height, int)):
+    elif (not isinstance(plot_width, int)) or (
+        not isinstance(plot_height, int)
+    ):
         raise ValueError("plot_width and plot_height must be integer")
 
     # Use data types to determine which columns to plot on which chart
-    numeric_cols = set(data.select_dtypes(include=np.number).columns).intersection(
-        features
-    )
+    numeric_cols = set(
+        data.select_dtypes(include=np.number).columns
+    ).intersection(features)
     cat_cols = set(
         data.select_dtypes(include=["category", "object"]).columns
     ).intersection(features)
@@ -63,7 +65,8 @@ def histograms(data, features, plot_width=100, plot_height=100, num_cols=2):
         .resolve_scale(x="independent")
     )
 
-    # data.sample done here due to Altair referencing same data frame otherwise and causing errors
+    # data.sample done here due to Altair referencing same data frame
+    # otherwise and causing errors
     # in concatenation later
     categorical_chart = (
         alt.Chart(data.sample(data.shape[0], random_state=42))
