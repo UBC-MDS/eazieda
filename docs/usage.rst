@@ -22,7 +22,7 @@ Then pass your data frame (``df``) and the columns you want to generate the plot
     histograms(df, ['numeric_column', 'categorical_column'],num_cols=2)
 
 This will give you a combined histogram (for numeric columns) and bar plot (for categorical columns) implemented in altair.
-*You can control the number of columns using ``num_cols`` and the plot dimensions with ``plot_width`` and ``plot_height``*
+You can control the number of columns using ``num_cols`` and the plot dimensions with ``plot_width`` and ``plot_height``
 
 To detect missing data in your dataframe, import the ``missing_detect`` function from the ``eazieda.missing_detect`` module::
 
@@ -47,7 +47,7 @@ To impute the missing data, do this::
     missing_impute(df)
 
 You will get an imputed data frame back. 
-*You can control the type of imputation with ``method_num`` and ``method_non_num``*
+You can control the type of imputation with ``method_num`` and ``method_non_num``
 
 To detect outliers in your data, import the ``outliers_detect`` function from the ``eazieda.outliers_detect`` module::
 
@@ -58,7 +58,7 @@ To detect the outliers do this::
     s = pd.Series([1,1,1,1,1,1,1,1,1,1,1e14])
     outliers_detect(s)
 
-*You can control the method used to detect the outliers with ``method``. You can choose one of ``iforest``, ``iqr`` or ``zscore``*
+You can control the method used to detect the outliers with ``method``. You can choose one of ``iforest``, ``iqr`` or ``zscore``
 
 To remove outliers in your data, import the ``remove_outliers`` function from the ``eazieda.outliers_detect`` module::
 
@@ -70,4 +70,4 @@ To remove the outliers, do this::
     outliers = np.array([False,,True])
     s_without_outliers = remove_outliers(s, outliers)
 
-*You can choose to do the removal in place with ``inplace=True``*
+You can choose to do the removal in place with ``inplace=True``
