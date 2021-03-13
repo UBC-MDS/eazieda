@@ -12,7 +12,7 @@ To install eazieda, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install -i https://test.pypi.org/simple/ eazieda
+    $ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple eazieda
 
 This is the preferred method to install eazieda, as it will always install the most recent stable release.
 

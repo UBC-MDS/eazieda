@@ -14,7 +14,7 @@ Typically these steps are followed by some preprocesing like imputation and deal
 ## Installation
 
 ```bash
-$ pip install -i https://test.pypi.org/simple/ eazieda
+$ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple eazieda
 ```
 
 ## Features
