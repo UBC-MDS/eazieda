@@ -2,6 +2,10 @@
 Usage
 =====
 
+All examples we'll walk through need ``pandas``:
+    
+    import pandas as pd
+    
 To generate correlation plots for your data frame, import the ``corr_plot`` function from the ``eazieda.corr_plot`` module::
 
     from eazieda.corr_plot import corr_plot

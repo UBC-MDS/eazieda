@@ -35,12 +35,7 @@ $ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.or
 
 ## Usage
 
-To use `eazieda` in a project:
-
-
-```
-from eazieda import eazieda
-```
+For ideas on how to use `eazieda` in a project please see our [Usage](https://eazieda.readthedocs.io/en/latest/usage.html) section on ReadTheDocs.
 
 ## Documentation
 
