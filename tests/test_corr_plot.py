@@ -1,15 +1,11 @@
 from eazieda import corr_plot
 import pandas as pd
 import numpy as np
-from pytest import raises
+from pytest import raises, fixture
 
 
-def test_corr_plot():
-
-    """
-    Test function to check the output of corr_plot function.
-    """
-
+@fixture
+def input_data():
     # Creating test inputs for the test function
     input_data = pd.DataFrame(
         {
@@ -19,10 +15,22 @@ def test_corr_plot():
             "vote_std": [0.87, 0.78, 0.82],
         }
     )
+    return input_data
 
+
+@fixture
+def plot_test(input_data):
     plot_test = corr_plot.corr_plot(input_data, features=None)
+    return plot_test
 
-    data_test = np.array([1, 2, 3, 4, 5])
+
+def test_corr_plot(input_data, plot_test):
+
+    """
+    Test function to check the output of corr_plot function.
+    """
+
+    array_test = np.array([1, 2, 3, 4, 5])
 
     features_test1 = ["vote_average", "vote_count", "vote_std"]
 
@@ -32,6 +40,15 @@ def test_corr_plot():
 
     # Tests whether output is of Altair object
     assert "altair" in str(type(plot_test)), "Output is not an Altair object"
+
+    assert "altair" in str(
+        type(
+            corr_plot.corr_plot(
+                input_data.loc[:, ["vote_count", "vote_std", "Title"]],
+                features=["vote_count", "vote_std", "Title"],
+            )
+        )
+    )
 
     # Tests whether plot mark is circle
     assert (
@@ -47,7 +64,7 @@ def test_corr_plot():
 
     # Tests whether a not dataframe input raises TypeError
     with raises(TypeError):
-        corr_plot.corr_plot(data_test, features_test1)
+        corr_plot.corr_plot(array_test, features_test1)
 
     # Tests whether a not list features raises TypeError
     with raises(TypeError):
@@ -70,3 +87,20 @@ def test_corr_plot():
     # Tests whether a method not from available options raises Exception
     with raises(Exception):
         corr_plot.corr_plot(input_data, method="laplace")
+
+
+def test_corr_plot_subsetting_errors(input_data):
+    with raises(ValueError):
+        corr_plot.corr_plot(input_data.loc[:, ["vote_count"]])
+
+    with raises(ValueError):
+        corr_plot.corr_plot(
+            input_data.loc[:, ["vote_count", "Title"]],
+            features=["vote_count", "Title"],
+        )
+
+    with raises(ValueError):
+        corr_plot.corr_plot(
+            input_data.loc[:, ["vote_count", "Title"]],
+            features=["vote_count", "Title"],
+        )
