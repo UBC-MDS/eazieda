@@ -69,7 +69,7 @@ def missing_impute(data, method_num="mean", method_non_num="most_frequent"):
                 imputed_df[num_columns] = imputed_df[num_columns].replace(
                     np.nan, imputed_df[num_columns].mean()
                 )
-            elif method_num == "median":
+            else:
                 imputed_df[num_columns] = imputed_df[num_columns].replace(
                     np.nan, imputed_df[num_columns].median()
                 )
