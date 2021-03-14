@@ -30,6 +30,9 @@ def plot():
 
 
 def test_histograms_value_errors(df):
+    """
+    Test if any inputs are wrong type and raise the correct error type
+    """
     with raises(ValueError):
         histograms(
             df,
@@ -57,6 +60,9 @@ def test_histograms_value_errors(df):
 
 
 def test_histograms_data(plot, df, df_sample):
+    """
+    Check the data in the plot object is correct with Iris dataset
+    """
     chart_data = list(plot.to_dict()["datasets"].values())
     pd.testing.assert_frame_equal(df, pd.DataFrame(chart_data[0]))
     pd.testing.assert_frame_equal(
@@ -65,6 +71,9 @@ def test_histograms_data(plot, df, df_sample):
 
 
 def test_plot_dims(plot):
+    """
+    Check plot sizing works correctly
+    """
     chart_data = plot.to_dict()["config"]
     assert chart_data["view"]["continuousWidth"] == 400
     assert chart_data["view"]["continuousHeight"] == 300
