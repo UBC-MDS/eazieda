@@ -85,13 +85,13 @@ def corr_plot(
     if features is None:
         if data.select_dtypes(include=numeric_features).shape[1] < 2:
             raise ValueError(
-                "Dataftame should have at least two numerical features"
+                "Dataframe should have at least two numerical features"
             )
         data = data.select_dtypes(include=numeric_features)
     else:
         if data[features].select_dtypes(np.number).shape[1] < 2:
             raise ValueError(
-                "Dataftame should have at least two numerical features"
+                "Dataframe should have at least two numerical features"
             )
         data = data[features].select_dtypes(include=np.number)
     # Creating corr_df dataframe
