@@ -40,7 +40,7 @@ def test_missing_impute(df_miss):
         missing_output_two_drop, expected_output_two_drop
     )
 
-    # Test with only one drop argument is selected
+    # Test with method_num="mean", method_non_num="drop"
     expected_output_one_drop = pd.DataFrame(
         data={"a": [1.0, 2.0, 3.0], "b": ["x", "y", "y"]}
     ).reset_index(drop=True)
@@ -51,13 +51,29 @@ def test_missing_impute(df_miss):
         expected_output_one_drop, missing_output_one_drop
     )
 
-    # Test with method_num="median"
+    # Test with method_num="median", method_non_num="most_frequent"
     expected_output_median = pd.DataFrame(
         data={"a": [1.0, 2.0, 2.0, 3.0], "b": ["x", "y", "y", "y"]}
     ).reset_index(drop=True)
     missing_output_median = missing_impute(df_miss, method_num="median")
 
     assert pd.DataFrame.equals(missing_output_median, expected_output_median)
+    
+    # Test with method_num="median", method_non_num="drop"
+    expected_output_median_drop = pd.DataFrame(
+        data={"a": [1.0, 2.0, 3.0], "b": ["x", "y", "y"]}
+    ).reset_index(drop=True)
+    missing_output_median_drop = missing_impute(df_miss, method_num="median", method_non_num="drop")
+
+    assert pd.DataFrame.equals(missing_output_median_drop, expected_output_median_drop)
+    
+    # Test with method_num="drop", method_non_num="most_frequent"
+    expected_output_drop_freq = pd.DataFrame(
+        data={"a": [1.0, 2.0, 3.0], "b": ["x", "x", "y"]}
+    ).reset_index(drop=True)
+    missing_output_drop_freq = missing_impute(df_miss, method_num="drop", method_non_num="most_frequent")
+
+    assert pd.DataFrame.equals(missing_output_drop_freq, expected_output_drop_freq)
 
     # Test whether a not dataframe input raises TypeError
     with raises(TypeError):
