@@ -4,12 +4,12 @@
 
 Almost every data analysis project involves the process of doing some exploratory data analysis(EDA) and data preprocessing. Usually they serve as a very crucial and inevitable step in a data analysis workflow. There are some very common tasks in EDA, which can include:
 
-- checking missing values
+- checking for missing values
 - detecting outliers 
-- ploting correlation plots between features
-- ploting histograms/bar plots for each individual features 
+- plotting correlation plots between features
+- plotting histograms/bar plots for each individual features 
 
-Typically these steps are followed by some preprocesing like imputation and dealing with outliers. All of those steps together may require lots of coding effort and can be repeated for several projects. To solve this issue, we designed the Python package `eazieda` that wraps all of those lines of code into four convenient functions that will allow you to quickly and easily carry out EDA along with some simple preprocessing using just a few lines of code!
+Typically these steps are followed by some preprocessing like imputation and dealing with outliers. All of those steps together may require lots of coding effort and can be repeated for several projects. To solve this issue, we designed the Python package `eazieda` that wraps all of those lines of code into four convenient functions that will allow you to quickly and easily carry out EDA along with some simple preprocessing using just a few lines of code!
 
 ## Installation
 
@@ -20,18 +20,25 @@ $ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.or
 ## Features
 
 1.  `missing_detect`: This function will take in a dataframe and generate a table listing the number of missing values and the percentage of missing values for each column. 
-2.  `missing_impute`: This function will take in a dataframe and genereate a imputated dataframe based on some simple imputation method. The imputation methods can also be customized by the user.
+2.  `missing_impute`: This function will take in a dataframe and generate a imputed dataframe based on some simple imputation method. The imputation methods can also be customized by the user.
 3.  `outliers_detect` : This function will take in a pandas series and will return a boolean numpy array containing all the indices of outliers as `True`, given by certain method that the users can customize.
 4.  `corr_plot`: This function will take in a dataframe and a list of feature names to generate a correlation plot for the given list of features.
-5.  `remove_outliers`: This function will take in a pandas series and an boolean numpy array with the outliers marked as `True` and removes them. It returns the series without the outliers. This can be done inplace in which case it will return None.
+5.  `remove_outliers`: This function will take in a pandas series and an boolean numpy array with the outliers marked as `True` and removes them. It returns the series without the outliers. This can be done in place in which case it will return None.
 6.  `histograms`: This function will take in a dataframe and a list of feature names to generates histograms for numeric features and bar plots for categorical features
 
 ## Dependencies
 
--   [python = \^3.8](https://www.python.org/)
--   [pandas = \^1.1.0](https://pandas.pydata.org/)
--   [numpy = \^1.19.1](https://numpy.org/)
--   [altair = \^4.1.0](https://altair-viz.github.io/)
+We use the common Python stack:
+
+-   [python](https://www.python.org/)
+-   [pandas](https://pandas.pydata.org/)
+-   [numpy](https://numpy.org/)
+-   [altair](https://altair-viz.github.io/)
+-   [vega-datasets](https://github.com/vega/vega-datasets)
+-   [scipy](https://www.scipy.org/)
+-   [scikit-learn](https://scikit-learn.org/stable/)
+
+For versioning and managing our package - we use [`poetry`](https://python-poetry.org/). More information on determining dependency versions can be found [here](https://python-poetry.org/docs/basic-usage/#installing-dependencies)
 
 ## Usage
 
